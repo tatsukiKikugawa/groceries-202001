@@ -38,28 +38,28 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
-pro_count = len(products)
+#
+#PRODUCTS(PART1)
+#
 
-print("--------------")
-print("THERE ARE " + str(pro_count) + " PRODUVTS.")
-print("--------------")
+#pro_count = len(products)
+# 
+#print("--------------")
+#print("THERE ARE " + str(pro_count) + " PRODUVTS.")
+#print("--------------")
+# 
+# 
+#def sort_by_name(any_product):
+#    return any_product["name"]
+#sorted_products = sorted(products, key=sort_by_name)
+# 
+#for my_product in sorted_products: #p referring each item in the list of products.
+#    #price(my_product["name"])
+#    #price_usd = my_product["price"]
+#    price_usd = " ${0:.2f}".format(my_product["price"])
+#    print(f" + " + my_product["name"] + price_usd)    
+#    #Dictionaries and string formatting from number
 
-def sort_by_name(any_product):
-    return any_product["name"]
-sorted_products = sorted(products, key=sort_by_name)
-
- #{"id":1, 
- #"name": "Chocolate Sandwich Cookies", 
- #"department": "snacks", 
- #"aisle": "cookies cakes", 
- #"price": 3.50},
-
-for my_product in sorted_products: #p referring each item in the list of products.
-    #price(my_product["name"])
-    #price_usd = my_product["price"]
-    price_usd = " ${0:.2f}".format(my_product["price"])
-    print(f" + " + my_product["name"] + price_usd)    
-    #Dictionaries and string formatting from number
 
 #--------------
 #THERE ARE 20 PRODUCTS:
@@ -84,3 +84,38 @@ for my_product in sorted_products: #p referring each item in the list of product
 # + Saline Nasal Mist ($16.00)
 # + Smart Ones Classic Favorites Mini Rigatoni With Vodka Cream Sauce ($6.99)
 # + Sparkling Orange Juice & Prickly Pear Beverage ($2.99)
+
+
+#
+# Departments (Part2)
+#
+departments = []
+for my_product in products:
+    #print(my_product["department"])
+    #departments.append(my_product["department"])
+    if my_product["department"] not in departments:
+        departments.append(my_product["department"])
+
+department_count = len(departments)
+
+print("--------------")
+print("THERE ARE " + str(department_count) + " DEPARTMENTS.")
+print("--------------")
+
+for my_department in departments:
+    print(my_department)
+
+
+#--------------
+#THERE ARE 10 DEPARTMENTS:
+#--------------
+# + Babies (1 product)
+# + Beverages (5 products)
+# + Dairy Eggs (1 product)
+# + Dry Goods Pasta (1 product)
+# + Frozen (4 products)
+# + Household (1 product)
+# + Meat Seafood (1 product)
+# + Pantry (2 products)
+# + Personal Care (2 products)
+# + Snacks (2 products)
