@@ -2,6 +2,8 @@
 
 #from pprint import pprint
 
+import operator  #always at the top
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -26,6 +28,15 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+def to_usd(my_price):
+    """
+    Converts a numeric value to usd-formatted string, for printing and display purposes.
+    Source: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/datatypes/numbers.md#formatting-as-currency
+    Param: my_price (int or float) like 4000.444444
+    Example: to_usd(4000.444444)
+    Returns: $4,000.44
+    """
+    return f"${my_price:,.2f}" #> $12,000.71
 
 pro_count = len(products)
 
@@ -33,13 +44,17 @@ print("--------------")
 print("THERE ARE " + str(pro_count) + " PRODUVTS.")
 print("--------------")
 
+def sort_by_name(any_product):
+    return any_product["name"]
+sorted_products = sorted(products, key=sort_by_name)
+
  #{"id":1, 
  #"name": "Chocolate Sandwich Cookies", 
  #"department": "snacks", 
  #"aisle": "cookies cakes", 
  #"price": 3.50},
 
-for my_product in products: #p referring each item in the list of products.
+for my_product in sorted_products: #p referring each item in the list of products.
     #price(my_product["name"])
     #price_usd = my_product["price"]
     price_usd = " ${0:.2f}".format(my_product["price"])
