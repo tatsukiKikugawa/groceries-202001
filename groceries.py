@@ -92,17 +92,22 @@ def to_usd(my_price):
 departments = []
 for my_product in products:
     #print(my_product["department"])
-    #departments.append(my_product["department"])
-    if my_product["department"] not in departments:
-        departments.append(my_product["department"])
+    departments.append(my_product["department"])
+    #if my_product["department"] not in departments:
+    #    departments.append(my_product["department"])
 
-department_count = len(departments)
+
+unique_departments = list(set(departments))
+
+
+
+department_count = len(unique_departments)
 
 print("--------------")
 print("THERE ARE " + str(department_count) + " DEPARTMENTS.")
 print("--------------")
 
-for my_department in departments:
+for my_department in unique_departments:
     print(my_department)
 
 
